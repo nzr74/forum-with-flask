@@ -1,6 +1,6 @@
 env
 
-migrations
+forum/migrations
 
 __pycache__
 
