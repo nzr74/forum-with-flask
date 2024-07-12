@@ -1,0 +1,22 @@
+{% extends 'base.html'%}
+
+{% block content%}
+<h3>{{user.id}}</h3>
+
+
+{% if current_user.is_authenticated and following %}
+<form action="{{url_for('users.unfollow',id = user.id)}}" method="post">
+    {{ form.csrf_token }}
+    {{ form.submit(value='unfollow') }}
+</form>
+
+{% elif current_user.is_authenticated and not following %}
+<form action="{{url_for('users.follow',id = user.id)}}" method="post">
+    {{ form.csrf_token }}
+    {{ form.submit(value='follow') }}
+</form>
+
+{% endif %}
+
+
+{%endblock%}
